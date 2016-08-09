@@ -1,6 +1,6 @@
 # RAML Console
 
-This repo is a clone of [Mulesoft's RAML Console](https://github.com/mulesoft/api-console)
+This repo is a fork of [Mulesoft's RAML Console](https://github.com/mulesoft/api-console)
 
 [![Build Status](https://travis-ci.org/PageUpPeopleOrg/api-console.svg)](https://travis-ci.org/PageUpPeopleOrg/api-console) 
 

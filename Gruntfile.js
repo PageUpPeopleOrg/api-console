@@ -90,7 +90,8 @@ module.exports = function (grunt) {
           expand: true,
           src:    [
             '**',
-            '!styles/**/*'
+            '!styles/**/*',
+            '!examples/**/*'
           ]
         }]
       }
@@ -323,10 +324,10 @@ module.exports = function (grunt) {
 
     s3: {
       options: {
-        bucket: 'api-console',
+        bucket: 'pageup-api-console',
         region: 'ap-southeast-2'
       },
-      build: {
+      deploy: {
         cwd: '<%= distdir %>',
         src: '**'
       }

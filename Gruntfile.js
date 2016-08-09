@@ -319,6 +319,17 @@ module.exports = function (grunt) {
           configFile: 'test/regression/local.protractor.conf.js'
         }
       }
+    },
+
+    s3: {
+      options: {
+        bucket: 'api-console',
+        region: 'ap-southeast-2'
+      },
+      build: {
+        cwd: '<%= distdir %>',
+        src: '**'
+      }
     }
   });
 
@@ -338,6 +349,11 @@ module.exports = function (grunt) {
     'jshint',
     'clean',
     'concurrent:dist'
+  ]);
+
+  grunt.registerTask('deploy', [
+    'dist',
+    's3'
   ]);
 
   grunt.registerTask('build:scripts', [

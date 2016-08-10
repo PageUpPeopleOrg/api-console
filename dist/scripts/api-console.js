@@ -5523,19 +5523,21 @@ RAML.Inspector = (function() {
     ]);
 
     // Base64 encode the client id and secret for the Authorization header.
-    var authorization = btoa(options.clientId + ':' + options.clientSecret);
+    // var authorization = btoa(options.clientId + ':' + options.clientSecret);
 
     return this.client._request({
       url: options.accessTokenUri,
       method: 'POST',
       headers: {
         'Accept':        'application/json, application/x-www-form-urlencoded',
-        'Content-Type':  'application/x-www-form-urlencoded',
-        'Authorization': 'Basic ' + authorization
+        'Content-Type':  'application/x-www-form-urlencoded' //,
+        // 'Authorization': 'Basic ' + authorization
       },
       data: uriEncode({
         scope:      sanitizeScope(options.scopes),
-        grant_type: 'client_credentials'
+        grant_type: 'client_credentials',
+        clientId: options.clientId,
+        clientSecret: options.clientSecret
       })
     }, function (err, data) {
       // If an error exists or the data contains an error, return `done`.

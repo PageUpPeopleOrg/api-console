@@ -761,8 +761,8 @@
       data: uriEncode({
         scope:      sanitizeScope(options.scopes),
         grant_type: 'client_credentials',
-        clientId: options.clientId,
-        clientSecret: options.clientSecret
+        client_id: options.clientId,
+        client_secret: options.clientSecret
       })
     }, function (err, data) {
       // If an error exists or the data contains an error, return `done`.
